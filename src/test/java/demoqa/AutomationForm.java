@@ -2,6 +2,7 @@ package demoqa;
 
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Selectors;
+import com.codeborne.selenide.Selenide;
 import org.junit.jupiter.api.Test;
 import properties.TestBase;
 
@@ -9,14 +10,13 @@ import properties.TestBase;
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.open;
 
 public class AutomationForm extends TestBase {
 
 
     @Test
     void successFillTest() {
-        open("/automation-practice-form");
+        Selenide.open("/automation-practice-form");
         $(".practice-form-wrapper").shouldHave(text("Student Registration Form"));
         $("#firstName").setValue("Testing First Name");
         $("#lastName").setValue("Testing Last Name");
