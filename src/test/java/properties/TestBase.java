@@ -16,9 +16,10 @@ public class TestBase {
         capabilities.setCapability("enableVideo", true);
         Configuration.browserCapabilities = capabilities;
         Configuration.browser = System.getProperty("browser", "chrome");
-        String user = System.getProperty("user1");
-        String password = System.getProperty("1234");
-        Configuration.remote = "https://" + user + ":" + password + "@selenoid.autotests.cloud/wd/hub";
+        String remoteBrowser = "selenoid.autotests.cloud/wd/hub";
+        String user = System.getProperty("user");
+        String password = System.getProperty("password");
+        Configuration.remote = "https://" + user + ":" + password + "@" + remoteBrowser;
     }
 
     @AfterEach
